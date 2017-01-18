@@ -90,6 +90,10 @@ ITransducer<Long, Long> filterOdds = filter(new Predicate<Long>() {
         return num.longValue() % 2 != 0;
     }
 });			
+
+// In java 8
+ITransducer<Long, Long> filterOdds = filter(num -> num % 2 != 0);
+
 ```
 
 Transducers are composed using the `com.cognitect.transducers.Fns#compose` method:
