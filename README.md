@@ -46,6 +46,9 @@ ITransducer<String, Long> stringify = map(new Function<Long, String>() {
         return i.toString();
     }
 });
+
+// In java 8
+ITransducer<String, Long> stringify = map(i -> i.toString());
 ```
 
 Because Transducers are agnostic to both the source of their inputs and the target of their intermediate sub-processes, you need a way to independently supply these elements for the purpose of executing an operation.  The specification of the intermediate stages is given by creating an instance of an `com.cognitect.transducers.IStepFunction`, shown below:
