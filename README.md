@@ -61,6 +61,12 @@ IStepFunction<List<String>, String> addString = new IStepFunction<List<String>, 
         return result;
     }
 };
+
+// In java 8
+  IStepFunction<List<String>, String> addString = (List<String> result, String input, AtomicBoolean reduced) -> {
+    result.add(input);
+    return result;
+  };
 ```
 
 The `addString` function supplies the knowledge of how to accumulate the result of an operation.  In this case, `addString` accepts a list and a `String` instance and adds it to the end of the list.  One of the most common ways to apply transducers is with the `com.cognitect.transducers.Fns#transduce` method, which is analogous to a standard `reduce` or `foldl` function found in many functional programming languages.  Given the Transducer `stringify` and the step function `addString`, you can initiate the mapping process by simply providing an `ArrayList<String>` instance serving as the output target for the step function and a list of `Longs` serving as the source of data for the whole operation:
