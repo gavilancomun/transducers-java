@@ -63,7 +63,7 @@ IStepFunction<List<String>, String> addString = new IStepFunction<List<String>, 
 };
 
 // In java 8
-IStepFunction<List<String>, String> addString = (List<String> result, String input, AtomicBoolean reduced) -> {
+IStepFunction<List<String>, String> addString = (result, input, reduced) -> {
   result.add(input);
   return result;
 };
